@@ -11,16 +11,30 @@ void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
-  await Future.delayed(
-    const Duration(milliseconds: 1500),
-  );
-  FlutterNativeSplash.remove();
   // runApp(DevicePreview(enabled: true, builder: (context) => const MyApp()));
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    initialization();
+    super.initState();
+  }
+
+  initialization() async {
+    await Future.delayed(
+      const Duration(milliseconds: 1500),
+    );
+    FlutterNativeSplash.remove();
+  }
 
   @override
   Widget build(BuildContext context) {

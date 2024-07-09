@@ -8,7 +8,7 @@ class NewsRepository {
   Future<Either<String, List<News>>> fetchTrendigNews() async {
     try {
       final response = await Dio().get(
-          "https://newsapi.org/v2/everything?q=apple&from=2024-06-18&to=2024-06-18&sortBy=popularity&apiKey=$apiKey");
+          "https://newsapi.org/v2/everything?q=tesla&from=2024-06-09&sortBy=publishedAt&apiKey=$apiKey");
      final data = List.from(response.data["articles"]).map((e) => News.fromMap(e)).toList();
         return right(data);
       
@@ -22,7 +22,7 @@ class NewsRepository {
 
   Future<Either<String, List<News>>> fetchBreakingNews()async{
     try{
-      final response = await Dio().get("https://newsapi.org/v2/everything?q=tesla&from=2024-06-02&sortBy=publishedAt&apiKey=$apiKey");
+      final response = await Dio().get("https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=$apiKey");
       final data= List.from(response.data["articles"]).map((e) => News.fromMap(e)).toList();
       return Right(data);
     }on DioException catch(e){
