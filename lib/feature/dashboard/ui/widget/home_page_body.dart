@@ -147,7 +147,7 @@ class _MyHomePageState extends State<MyHomePageBody> {
                       height: 10.h,
                     ),
                     Column(
-                      children: List.generate(15, (index) {
+                      children: List.generate(state.news.length, (index) {
                         return TrendingNewsTile(
                           news: state.news[index],
                         );
