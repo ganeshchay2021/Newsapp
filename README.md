@@ -2,7 +2,6 @@
 
 This is News App. I have implemented NewsOrg free Api and for state management i have use cubit.
 
-
 ## Out put 
 
 <img src="https://github.com/user-attachments/assets/fea45616-6ef6-4102-8cc7-5b0bb8b150c9" alt="Screenshot 3" height="500" style="margin-right: 200px;">
